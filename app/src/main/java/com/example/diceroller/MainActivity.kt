@@ -10,8 +10,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
- val rollButton: Button = findViewById(R.id.button)
-        rollButton.setOnClickListener{
+        val rollButton: Button = findViewById(R.id.button)
+        rollButton.setOnClickListener {
 //            val toast = Toast.makeText(this, " dice rolled!" , Toast.LENGTH_SHORT)
 //            toast.show()
 //            val resultTextView: TextView = findViewById(R.id.textView)
@@ -21,16 +21,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rollDice() {
+        // Create new Dice object with 6 sides and roll it
         val dice = Dice(6)
         val diceRoll = dice.roll()
+        // Update the screen with the dice roll
         val resultTextView: TextView = findViewById(R.id.textView)
         resultTextView.text = diceRoll.toString()
     }
 }
 
 
-class Dice(private val numSides: Int){
-    fun roll():Int{
+class Dice(private val numSides: Int) {
+    fun roll(): Int {
         return (1..numSides).random()
     }
 }
